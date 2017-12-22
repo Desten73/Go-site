@@ -6,8 +6,8 @@ import (
 	"html/template"
 
 
-
-	"models"
+	"github.com/Desten73/Go-site/models"
+	// "models"
 )
 
 
@@ -90,6 +90,8 @@ func main() {
 
 
 	http.Handle("/vendor/", http.StripPrefix("/vendor/", http.FileServer(http.Dir("./vendor/"))))
+
+
 
 
 	http.HandleFunc("/", indexHandler)
