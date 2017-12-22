@@ -2,21 +2,24 @@
 
 {{ template "header" }}
 
-<div class="row">
-	<div class="col-xs-4">
+<div class="py-5">
+	<div class="container">
+	<p></p>
 	</div>
-	<div class="col-xs-4">
+	<div class="container">
 		<form role="form" method="POST" action="/SavePost">
 			<input type="hidden" name="id" value="{{.Id}}" />
-			<div class="form-group">
-				<label>Наше ФИО</label>
+			<div class="container">
+				<label><h3>Наше ФИО</h3></label>
 				<input type="text" class="form-control" id="title" name="title" value="{{.Title}}"  />
 			</div>
-			<div class="form-group">
-				<label>Краткое описание работы, которую нужно будет проделать и контакты</label>
-				<textarea id="content" name="content">{{.Content}}</textarea>
+			<div class="container">
+				<label><h3>Краткое описание работы, которую нужно будет проделать и контакты</h3></label>
+				<input type="text" class="form-control" id="content" name="content" value="{{.Content}}"  />
+
 			</div>
-			<button type="submit" class="btn btn-default">Отправить</button>
+			<p></p>
+			<button type="submit" style="margin-left: 45%;" class="btn btn-default">Отправить</button>
 		</form>
 
 	</div>

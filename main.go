@@ -7,7 +7,7 @@ import (
 
 
 
-	"https://github.com/Desten73/Go-site/blob/master/models/"
+	"models"
 )
 
 
@@ -87,7 +87,11 @@ func main() {
 
 	posts = make(map[string]*models.Post, 0)
 
-	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("./assets/"))))
+
+
+	http.Handle("/vendor/", http.StripPrefix("/vendor/", http.FileServer(http.Dir("./vendor/"))))
+
+
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/write", writeHandler)
 	http.HandleFunc("/edit", editHandler)

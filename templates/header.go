@@ -1,49 +1,58 @@
 {{ define "header" }}
 
 <!DOCTYPE html>
-<html lang="ru">
-<head>
+<html lang="en">
+
+  <head>
+
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Сайт строительной компании</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <!-- Bootstrap -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <title>Строительная Компания "ПостройКа"</title>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="assets/css/app.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/half-slider.css" rel="stylesheet">
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="assets/js/jquery-2.1.0.min.js"></script>
-</head>
-<body>
 
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar">йцу</span>
-                <span class="icon-bar">цук</span>
-                <span class="icon-bar">уке</span>
-            </button>
-            <a class="navbar-brand" href="/">Сайт строительной компании</a>
+    
+  </head>
+
+  <body>
+
+
+<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">ПостройКа</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Главная
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">О нас</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Услуги</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/write">Контактые данные</a>
+            </li>
+          </ul>
         </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Главная</a></li>
-                <li><a href="/write">Оставить свои данные</a></li>
-                <li><a href="/">пра пра</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</div>
+      </div>
+    </nav>
+
+
 
 {{ end }}
