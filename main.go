@@ -7,14 +7,14 @@ import (
 
 
 
-	"models"
+	"https://github.com/Desten73/Go-site/blob/master/models/"
 )
 
 
 var posts map[string]*models.Post
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("templates/index.html", "templates/header.html", "templates/footer.html")
+	t, err := template.ParseFiles("templates/index.go", "templates/header.go", "templates/footer.go")
 	if err != nil {
 		fmt.Fprintf(w, err.Error())
 		return
@@ -24,7 +24,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func writeHandler(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("templates/write.html", "templates/header.html", "templates/footer.html")
+	t, err := template.ParseFiles("templates/write.go", "templates/header.go", "templates/footer.go")
 	if err != nil {
 		fmt.Fprintf(w, err.Error())
 		return
@@ -34,7 +34,7 @@ func writeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func editHandler(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("templates/write.html", "templates/header.html", "templates/footer.html")
+	t, err := template.ParseFiles("templates/write.go", "templates/header.go", "templates/footer.go")
 	if err != nil {
 		fmt.Fprintf(w, err.Error())
 		return
