@@ -100,5 +100,6 @@ func main() {
 	http.HandleFunc("/delete", deleteHandler)
 	http.HandleFunc("/SavePost", savePostHandler)
 
-	http.ListenAndServe(":3000", nil)
+	port := os.Getenv("PORT")
+	http.ListenAndServe(":" + port, nil)
 }
