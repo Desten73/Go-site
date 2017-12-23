@@ -4,14 +4,26 @@ import (
 	"fmt"
 	"net/http"
 	"html/template"
+	"os"
 
 
-	"github.com/Desten73/Go-site/models"
+	// "github.com/Desten73/Go-site/models"
 	// "models"
 )
 
 
-var posts map[string]*models.Post
+type Post struct {
+	Id      string
+	Title   string
+	Content string
+}
+
+func NewPost(id, title, content string) *Post {
+	return &Post{id, title, content}
+}
+
+
+var posts map[string]*Post
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	t, err := template.ParseFiles("templates/index.go", "templates/header.go", "templates/footer.go")
@@ -56,14 +68,14 @@ func savePostHandler(w http.ResponseWriter, r *http.Request) {
 	title := r.FormValue("title")
 	content := r.FormValue("content")
 
-	var post *models.Post
+	var post *Post
 	if id != "" {
 		post = posts[id]
 		post.Title = title
 		post.Content = content
 	} else {
 		id = GenerateId()
-		post := models.NewPost(id, title, content)
+		post := NewPost(id, title, content)
 		posts[post.Id] = post
 	}
 
@@ -83,9 +95,9 @@ func deleteHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	fmt.Println("Listening on port :3000")
+	// fmt.Println("Listening on port :3000")
 
-	posts = make(map[string]*models.Post, 0)
+	posts = make(map[string]*Post, 0)
 
 
 
@@ -101,5 +113,8 @@ func main() {
 	http.HandleFunc("/SavePost", savePostHandler)
 
 	port := os.Getenv("PORT")
+
+
 	http.ListenAndServe(":" + port, nil)
+	// http.ListenAndServe(":3000" + port, nil)
 }
