@@ -7,6 +7,9 @@ import (
 	"os"
 
 
+	"github.com/go-martini/martini"
+
+
 	// "github.com/Desten73/Go-site/models"
 	// "models"
 )
@@ -26,7 +29,7 @@ func NewPost(id, title, content string) *Post {
 var posts map[string]*Post
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("templates/index.go", "templates/header.go", "templates/footer.go")
+	t, err := template.ParseFiles("templates/index.html", "templates/header.html", "templates/footer.html")
 	if err != nil {
 		fmt.Fprintf(w, err.Error())
 		return
@@ -36,7 +39,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func writeHandler(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("templates/write.go", "templates/header.go", "templates/footer.go")
+	t, err := template.ParseFiles("templates/write.html", "templates/header.html", "templates/footer.html")
 	if err != nil {
 		fmt.Fprintf(w, err.Error())
 		return
@@ -46,7 +49,7 @@ func writeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func editHandler(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("templates/write.go", "templates/header.go", "templates/footer.go")
+	t, err := template.ParseFiles("templates/write.html", "templates/header.html", "templates/footer.html")
 	if err != nil {
 		fmt.Fprintf(w, err.Error())
 		return
@@ -64,6 +67,7 @@ func editHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func savePostHandler(w http.ResponseWriter, r *http.Request) {
+	// m := martini.Classic()
 	id := r.FormValue("id")
 	title := r.FormValue("title")
 	content := r.FormValue("content")
@@ -79,6 +83,8 @@ func savePostHandler(w http.ResponseWriter, r *http.Request) {
 		posts[post.Id] = post
 	}
 
+
+	// m.Get("/", indexHandler)
 	http.Redirect(w, r, "/", 302)
 }
 
@@ -99,20 +105,30 @@ func main() {
 
 	posts = make(map[string]*Post, 0)
 
-
-
 	http.Handle("/vendor/", http.StripPrefix("/vendor/", http.FileServer(http.Dir("./vendor/"))))
 
 
 
+	m := martini.Classic()
+	m.Get("/", indexHandler)
+    m.Get("/write", writeHandler)
+    m.Get("/edit", editHandler)
+    m.Get("/delete", deleteHandler)
+    m.Get("/SavePost", savePostHandler)
+	m.Run()
 
-	http.HandleFunc("/", indexHandler)
-	http.HandleFunc("/write", writeHandler)
-	http.HandleFunc("/edit", editHandler)
-	http.HandleFunc("/delete", deleteHandler)
-	http.HandleFunc("/SavePost", savePostHandler)
 
-	port := os.Getenv("PORT")
+
+
+
+
+	// http.HandleFunc("/", indexHandler)
+	// http.HandleFunc("/write", writeHandler)
+	// http.HandleFunc("/edit", editHandler)
+	// http.HandleFunc("/delete", deleteHandler)
+	// http.HandleFunc("/SavePost", savePostHandler)
+
+	 port := os.Getenv("PORT")
 
 
 	http.ListenAndServe(":" + port, nil)

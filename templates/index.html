@@ -1,0 +1,84 @@
+{{ define "index" }}
+
+{{ template "header" }}
+
+
+
+
+<header>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div class="carousel-item active" style="background-image: url('https://artleo.com/images/201108/artleo.com_5090.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Дизайн</h3>
+              <p>Мы предоставляем своим клиентам дизайнера. В конечном итоге вы получите ремонт своей мечты.</p>
+            </div>
+          </div>
+          <!-- Slide Two - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url('http://krovlyamoya.ru/wp-content/uploads/2016/09/varianty-oformleniya-mansardy-s-dvuxskatnoj-kryshej.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Уют</h3>
+              <p>Отделка помещений "под ключ" приносит незабываемые ощущения. Мы учитываем все прихоти своих клиентов, именно поэтому нашей работой всегда остаются довольны.</p>
+            </div>
+          </div>
+          <!-- Slide Three - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url('http://housesdesign.ru/bundles/sitehouses/blog_covers/crop/big/61/87/fdcd4ba479de282ca68cdb500506.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Качество</h3>
+              <p>Опыт нашей бригады уже более 10 лет. Не пренебрегайте качеством в угоды выгоды! Мы даем гарантию на свою рабору 2 года!</p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <section class="py-5">
+      <div class="container">
+        <h1>Многие уже выбрали нашу строительную компанию, а Вы?</h1>
+        <p>Мы работаем в сфере строительных услуг уже более 10 лет и за это время показали себя как добросовестная компания, которая проделывает качественную работу. Нашими клиентами были такие люди как Иван Иванов и Владимир Пупкин! Эти имена говорят сами за себя, доверяйте только проверенным временем работникам. Именно таким как МЫ! 
+          </p>
+      </div>
+    </section>
+
+
+
+{{ range $key, $value := . }}
+<div class="row">
+	<div class="col-xs-2">
+	</div>
+	<div class="col-xs-8">
+		<h1><a href="/edit?id={{$key}}">{{ $value.Title }}</a></h1>
+		
+	</div>
+	<div class="col-xs-2">
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-2">
+	</div>
+	<div class="col-xs-8">
+		{{ $value.Content }}
+	</div>
+	<div class="col-xs-2">
+	</div>
+</div>
+{{ end }}
+
+{{ template "footer" }}
+
+{{ end }}
