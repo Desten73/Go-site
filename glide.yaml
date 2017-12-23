@@ -1,22 +1,17 @@
 package: .
 import:
 - package: github.com/dgrijalva/jwt-go
-  version: v3.1.0
+- package: github.com/go-martini/martini
 - package: github.com/gobuffalo/buffalo
-  version: ~0.10.2
 - package: github.com/labstack/echo
-  version: 3.2.5
 - package: github.com/labstack/gommon
-  version: 0.2.3
   subpackages:
   - bytes
   - color
   - log
   - random
 - package: github.com/mattn/go-colorable
-  version: v0.0.9
 - package: github.com/mattn/go-isatty
-  version: v0.0.3
 - package: github.com/valyala/bytebufferpool
 - package: github.com/valyala/fasttemplate
 - package: golang.org/x/crypto
@@ -52,13 +47,10 @@ import:
   - windows/svc/eventlog
   - windows/svc/mgr
 - package: google.golang.org/appengine
-  version: v1.0.0
   subpackages:
   - cloudsql
 - package: gopkg.in/gin-gonic/gin.v1
-  version: v1.2
 testImport:
 - package: github.com/stretchr/testify
-  version: v1.1.4
   subpackages:
   - assert
