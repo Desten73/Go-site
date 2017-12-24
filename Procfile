@@ -1,1 +1,1 @@
-web: Go_site_v2
+web: go_site

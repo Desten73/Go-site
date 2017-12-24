@@ -1,5 +1,5 @@
 {
-	"ImportPath": "github.com/Desten73/Go-site",
+	"ImportPath": "github.com/Desten73/testapp",
 	"GoVersion": "go1.9",
 	"GodepVersion": "v79",
 	"Deps": [
