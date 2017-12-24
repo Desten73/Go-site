@@ -1,1 +1,1 @@
-web: go_site
+web: testapp

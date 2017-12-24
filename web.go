@@ -125,8 +125,6 @@ func main() {
 
     http.Handle("/vendor/", http.StripPrefix("/vendor/", http.FileServer(http.Dir("./vendor/"))))
 
-    http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("./css/"))))
-
 
 
     m := martini.Classic()
