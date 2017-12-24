@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"html/template"
-	"os"
+	// "os"
 
 
 	"github.com/go-martini/martini"
@@ -103,7 +103,7 @@ func deleteHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	// fmt.Println("Listening on port :3000")
 
-	posts = make(map[string]*Post, 0)
+	// posts = make(map[string]*Post, 0)
 
 	http.Handle("/vendor/", http.StripPrefix("/vendor/", http.FileServer(http.Dir("./vendor/"))))
 
@@ -128,9 +128,8 @@ func main() {
 	// http.HandleFunc("/delete", deleteHandler)
 	// http.HandleFunc("/SavePost", savePostHandler)
 
-	 port := os.Getenv("PORT")
+	 // port := os.Getenv("PORT")
+	// http.ListenAndServe(":" + port, nil)
 
-
-	http.ListenAndServe(":" + port, nil)
 	// http.ListenAndServe(":3000" + port, nil)
 }
