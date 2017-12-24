@@ -108,14 +108,20 @@ func main() {
 	http.Handle("/vendor/", http.StripPrefix("/vendor/", http.FileServer(http.Dir("./vendor/"))))
 
 
-
 	m := martini.Classic()
-	m.Get("/", indexHandler)
-    m.Get("/write", writeHandler)
-    m.Get("/edit", editHandler)
-    m.Get("/delete", deleteHandler)
-    m.Get("/SavePost", savePostHandler)
+	m.Get("/", func() string {
+		return "Hello World"
+	})
 	m.Run()
+
+
+	// m := martini.Classic()
+	// m.Get("/", indexHandler)
+ //    m.Get("/write", writeHandler)
+ //    m.Get("/edit", editHandler)
+ //    m.Get("/delete", deleteHandler)
+ //    m.Get("/SavePost", savePostHandler)
+	// m.Run()
 
 
 
